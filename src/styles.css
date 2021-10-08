@@ -1,3 +1,5 @@
+
+
 .hoverwell:hover{
     background-color: #485563;
     cursor: pointer;
@@ -10,3 +12,12 @@
 .pointable{
     cursor: pointer;
 }
+
+button{
+    color: #555;
+}
+
+[hidden]{
+    display: none !important;
+}
+
