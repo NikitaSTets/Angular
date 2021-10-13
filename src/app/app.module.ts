@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-import { MyComponentComponent } from './my-component/my-component.component';
 import { EventsAppComponent } from './events-app.component';
 import { EventListComponent } from './events/events-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
@@ -17,7 +16,6 @@ import { appRoutes } from './routes';
 
 @NgModule({
   declarations: [
-    MyComponentComponent,
     EventsAppComponent,
     EventListComponent,
     EventThumbnailComponent,
