@@ -8,6 +8,7 @@ import { EventListComponent } from './events/events-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 
 import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
@@ -21,7 +22,8 @@ import { appRoutes } from './routes';
     EventListComponent,
     EventThumbnailComponent,
     NavBarComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    CreateEventComponent
   ],
   imports: [
     BrowserModule,
