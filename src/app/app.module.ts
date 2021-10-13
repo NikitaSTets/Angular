@@ -6,6 +6,7 @@ import { MyComponentComponent } from './my-component/my-component.component';
 import { EventsAppComponent } from './events-app.component';
 import { EventListComponent } from './events/events-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
+import { NavBarComponent } from './nav/navbar.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.compo
     MyComponentComponent,
     EventsAppComponent,
     EventListComponent,
-    EventThumbnailComponent
+    EventThumbnailComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule
