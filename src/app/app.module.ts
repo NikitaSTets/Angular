@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
+import { appRoutes } from './routes';
+
 import { EventsAppComponent } from './events-app.component';
 import { EventListComponent } from './events/events-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
@@ -14,8 +16,7 @@ import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
 import { EventRouteActivator } from './event-details/event-route-activator.service';
 import { EventListResolver } from './events/events-list-resolver.service';
-
-import { appRoutes } from './routes';
+import { AuthService } from './user/login/auth.service';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,12 @@ import { appRoutes } from './routes';
     EventService,
     ToastrService,
     EventRouteActivator,
+    AuthService,
     EventListResolver,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: chechDirtyState
-    }
+    },
   ],
   bootstrap: [EventsAppComponent]
 })
