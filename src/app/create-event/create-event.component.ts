@@ -15,6 +15,22 @@ export class CreateEventComponent implements OnInit {
 
   }
 
+  ngOnInit(): void {
+    this.newEvent = {
+      name: 'Test',
+      date: '8/8/2028',
+      time: '10am',
+      price: 799.99,
+      location: {
+        address: '654 old st',
+        city: "Fel",
+        country: 'Bel'
+      },
+      onlineUrl:'http://asd.com',
+      imageUrl:'http://asd.com/dsad.png'
+    }
+  }
+
   saveEvent(formValues: any) {
     this.eventService.saveEvent(formValues);
     this.isDirty = false;
@@ -23,8 +39,5 @@ export class CreateEventComponent implements OnInit {
 
   cancel() {
     this.router.navigate(['/events']);
-  }
-
-  ngOnInit(): void {
   }
 }
