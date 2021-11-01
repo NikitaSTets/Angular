@@ -3,14 +3,12 @@
 </div>
 <div class="col-md-6">
   <form [formGroup]="newSessionForm" (ngSubmit)="saveSession(newSessionForm.value)" autocomplete="off">
-    <div class="form-group"
-      [ngClass]="{'error': name.invalid && name.dirty}">
+    <div class="form-group" [ngClass]="{'error': name.invalid && name.dirty}">
       <label for="sessionName">Session Name:</label>
       <em *ngIf="name.invalid && name.dirty">Required</em>
       <input formControlName="name" id="sessionName" type="text" class="form-control" placeholder="session name..." />
     </div>
-    <div class="form-group"
-      [ngClass]="{'error':presenter.invalid && presenter.dirty}">
+    <div class="form-group" [ngClass]="{'error':presenter.invalid && presenter.dirty}">
       <label for="eventDate">Presenter:</label>
       <em *ngIf="presenter.invalid && presenter.dirty">Required</em>
       <input formControlName="presenter" id="presenter" type="text" class="form-control" placeholder="presenter..." />
@@ -39,6 +37,8 @@
     <div class="form-group" [ngClass]="{'error': abstract.invalid && abstract.dirty}">
       <label for="abstract">Abstract:</label>
       <em *ngIf="abstract.invalid && abstract.dirty && abstract?.errors?.maxLength">Cannot exceed 400 characters</em>
+      <em *ngIf="abstract.invalid && abstract.dirty && abstract?.errors?.restrictedWords">
+        Restricted words found: {{abstract.errors?.restrictedWords}}</em>
       <textarea formControlName="abstract" id="abstract" rows=3 class="form-control"
         placeholder="abstract..."></textarea>
     </div>
