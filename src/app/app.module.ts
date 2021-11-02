@@ -27,6 +27,7 @@ import {
 } from './event-details/index';
 
 import { CreateSessionComponent } from './create-session/index';
+import { SessionListComponent } from './session-list/session-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CreateSessionComponent } from './create-session/index';
     EventDetailsComponent,
     CreateEventComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
