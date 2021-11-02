@@ -28,6 +28,7 @@ import {
 
 import { CreateSessionComponent } from './create-session/index';
 import { SessionListComponent } from './session-list/session-list.component';
+import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SessionListComponent } from './session-list/session-list.component';
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
