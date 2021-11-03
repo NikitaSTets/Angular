@@ -18,7 +18,8 @@ import {
   EventListResolver,
   EventService,
   EventsAppComponent,
-  EventListComponent
+  EventListComponent,
+  DurationPipe
 } from './events/index';
 
 import {
@@ -41,7 +42,8 @@ import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.co
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
