@@ -9,7 +9,13 @@ import { NavBarComponent } from './nav/navbar.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { Error404Component } from './errors/404.component';
 
-import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
+import {
+  TOASTR_TOKEN,
+  JQ_TOKEN,
+  Toastr,
+  CollapsibleWellComponent,
+  SimpleModalComponent
+} from './common/index';
 
 import { AuthService } from './user/login/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,9 +35,9 @@ import {
 
 import { CreateSessionComponent } from './create-session/index';
 import { SessionListComponent } from './session-list/session-list.component';
-import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
 
-declare let toastr: Toastr
+declare let toastr: Toastr;
+declare let $: any;
 
 @NgModule({
   declarations: [
@@ -45,7 +51,8 @@ declare let toastr: Toastr
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +65,10 @@ declare let toastr: Toastr
     {
       provide: TOASTR_TOKEN,
       useValue: toastr
+    },
+    {
+      provide: JQ_TOKEN,
+      useValue: $
     },
     EventRouteActivator,
     AuthService,
