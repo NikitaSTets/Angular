@@ -59,7 +59,7 @@ import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.co
     EventListResolver,
     {
       provide: 'canDeactivateCreateEvent',
-      useValue: chechDirtyState
+      useValue: checkDirtyState
     },
   ],
   bootstrap: [EventsAppComponent]
@@ -67,7 +67,7 @@ import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.co
 
 export class AppModule { }
 
-export function chechDirtyState(component: CreateEventComponent) {
+export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty) {
     return window.confirm('You have not saved this event, do you really want cancel?')
   }

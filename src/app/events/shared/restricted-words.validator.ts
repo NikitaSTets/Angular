@@ -1,9 +1,11 @@
-import { FormGroup } from "@angular/forms";
+import { ValidatorFn, AbstractControl, ValidationErrors } from "@angular/forms";
 
-export function restrictedWords(words: string[]) {
-    return (control: FormGroup): { [key: string]: any } => {
+export function restrictedWords(words: string[]): ValidatorFn {
+
+    return (control: AbstractControl): ValidationErrors | null => {
+
         if (!words) {
-            return {};
+            return null;
         }
 
         var invalidWords = words.map(w => control.value.includes(w) ? w : null)
@@ -11,6 +13,6 @@ export function restrictedWords(words: string[]) {
 
         return invalidWords && invalidWords.length > 0
             ? { 'restrictedWords': invalidWords.join(',') }
-            : {}
+            : null
     }
 }
