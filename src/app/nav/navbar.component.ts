@@ -13,13 +13,12 @@ export class NavBarComponent {
     foundSessions!: ISession[];
 
     constructor(public authService: AuthService, private eventService: EventService) {
-
+        
     }
 
     searchSessions(searchTerm: string) {
         this.eventService.searchSessions(searchTerm).subscribe(sessions => {
             this.foundSessions = sessions;
-            console.log(this.foundSessions)
         });
     }
 }

@@ -14,7 +14,8 @@ import {
   JQ_TOKEN,
   Toastr,
   CollapsibleWellComponent,
-  SimpleModalComponent
+  SimpleModalComponent,
+  ModalTriggerDirective
 } from './common/index';
 
 import { AuthService } from './user/login/auth.service';
@@ -52,7 +53,8 @@ declare let $: any;
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
-    SimpleModalComponent
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
