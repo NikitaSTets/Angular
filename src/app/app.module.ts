@@ -31,11 +31,13 @@ import {
 
 import {
   EventDetailsComponent,
-  EventRouteActivator
+  EventRouteActivator,
+  VoterService
 } from './event-details/index';
 
 import { CreateSessionComponent } from './create-session/index';
 import { SessionListComponent } from './session-list/session-list.component';
+import { UpvoteComponent } from './upvote/upvote.component';
 
 declare let toastr: Toastr;
 declare let $: any;
@@ -52,9 +54,10 @@ declare let $: any;
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    UpvoteComponent,
+    DurationPipe,
+    ModalTriggerDirective,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,7 @@ declare let $: any;
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
     },
+    VoterService
   ],
   bootstrap: [EventsAppComponent]
 })
