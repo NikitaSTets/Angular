@@ -26,6 +26,7 @@ import {
   EventService,
   EventsAppComponent,
   EventListComponent,
+  LocationValidator,
   DurationPipe
 } from './events/index';
 
@@ -58,6 +59,7 @@ declare let $: any;
     UpvoteComponent,
     DurationPipe,
     ModalTriggerDirective,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
