@@ -3,31 +3,37 @@ const PROXY_CONFIG = {
     'target': "http://localhost:8808/",
     'secure': false,
     'bypass': function (req, res, proxyOptions) {
-      switch (req.url) {
-        case '/api/events':
-          res.end(JSON.stringify(EVENTS));
+      if (req.url === '/api/events') {
+        res.end(JSON.stringify(EVENTS));
 
-          return true;
-        case '/api/events/1':
-          res.end(JSON.stringify(EVENTS[0]));
+        return true;
+      }
+      else if (req.url.includes('/api/events')) {
+        const id = +req.url.split('/').pop();
+        res.end(JSON.stringify(EVENTS[id - 1]));
 
-          return true;
-        case '/api/events/2':
-          res.end(JSON.stringify(EVENTS[1]));
+        return true;
+      }
+      else if (req.url.includes('/api/sessions/search')) {
+        const term = req.url.split('?').pop().split('=').pop().toLocaleLowerCase();
+        let results = [];
 
-          return true;
-        case '/api/events/3':
-          res.end(JSON.stringify(EVENTS[2]));
+        EVENTS.forEach(event => {
+          var matchingSessions = event.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1)
+    
+          matchingSessions = matchingSessions.map((session) => {
+            session.eventId = event.id;
+    
+            return session;
+          })
+    
+          results = results.concat(matchingSessions);
+        })
+    
 
-          return true;
-        case '/api/events/4':
-          res.end(JSON.stringify(EVENTS[3]));
+        res.end(JSON.stringify(results));
 
-          return true;
-        case '/api/events/5':
-          res.end(JSON.stringify(EVENTS[4]));
-
-          return true;
+        return true;
       }
     }
   }

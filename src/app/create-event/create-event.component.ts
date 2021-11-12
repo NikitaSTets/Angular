@@ -26,13 +26,15 @@ export class CreateEventComponent implements OnInit {
         city: "Fel",
         country: 'Bel'
       },
-      onlineUrl:'http://asd.com',
-      imageUrl:'http://asd.com/dsad.png'
+      onlineUrl: 'http://asd.com',
+      imageUrl: 'http://asd.com/dsad.png'
     }
   }
 
   saveEvent(formValues: any) {
-    this.eventService.saveEvent(formValues);
+    this.eventService.saveEvent(formValues).subscribe(() => {
+
+    });
     this.isDirty = false;
     this.router.navigate(['/events']);
   }
