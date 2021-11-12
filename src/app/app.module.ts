@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 import { appRoutes } from './routes';
 
@@ -27,12 +28,12 @@ import {
   EventsAppComponent,
   EventListComponent,
   LocationValidator,
-  DurationPipe
+  DurationPipe,
+  EventResolver
 } from './events/index';
 
 import {
   EventDetailsComponent,
-  EventRouteActivator,
   VoterService
 } from './event-details/index';
 
@@ -65,7 +66,8 @@ declare let $: any;
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [
     EventService,
@@ -76,8 +78,8 @@ declare let $: any;
     {
       provide: JQ_TOKEN,
       useValue: $
-    },
-    EventRouteActivator,
+    }, 
+    EventResolver,
     AuthService,
     EventListResolver,
     {
