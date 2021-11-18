@@ -20,18 +20,23 @@ const PROXY_CONFIG = {
 
         EVENTS.forEach(event => {
           var matchingSessions = event.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1)
-    
+
           matchingSessions = matchingSessions.map((session) => {
             session.eventId = event.id;
-    
+
             return session;
           })
-    
+
           results = results.concat(matchingSessions);
         })
-    
+
 
         res.end(JSON.stringify(results));
+
+        return true;
+      }
+      else if (req.url.includes('/api/login')) {
+        res.end("{\"userName\":\"test\",\"password\": \"password\"}");
 
         return true;
       }

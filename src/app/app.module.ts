@@ -78,7 +78,7 @@ declare let $: any;
     {
       provide: JQ_TOKEN,
       useValue: $
-    }, 
+    },
     EventResolver,
     AuthService,
     EventListResolver,
