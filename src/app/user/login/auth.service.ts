@@ -42,4 +42,14 @@ export class AuthService {
         this.currentUser.firstName = firtstName;
         this.currentUser.lastName = lastName;
     }
+
+    checkAuthenticationStatus() {
+        this.http.get('/api/currentIdentity')
+            .pipe(tap(data => {
+                if (data instanceof Object) {
+                    this.currentUser = data as IUser;
+                }
+            }))
+            .subscribe();
+    }
 }
